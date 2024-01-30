@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+
+    <header>
+        <button class="select-color">Light</button>
+    </header>
+
+    <main id="main-container">
+      <div class="header-main">
+        <h1>Password Generator</h1>
+        <p>The perfect application for your new password!</p>
+      </div>
+
+      <div id="form-container">
+
+        <div class="input-box">
+            <label for="length">Length</label>
+            <input type="number" name="length" id="length" value="10" min="1">
+        </div> 
+
+        <div class="input-box">
+            <label for="numbers">Numbers</label>
+            <input type="checkbox" name="numbers" id="numbers">
+        </div>        
+        
+        <div class="input-box">
+            <label for="letters">Letters</label>
+            <input type="checkbox" name="letters" id="letters">
+        </div>
+
+        <div class="input-box">
+            <label for="symbols">Symbols</label>
+            <input type="checkbox" name="symbols" id="symbols">
+        </div> 
+
+      </div>
+
+      <div id="advanced-pass-container" class="hide">
+
+        <div class="input-box">
+          <label for="big-letters">Big Letters</label>
+          <input type="number" name="big-letters" id="big-letters" value="2" min="1">
+      </div> 
+
+      <div class="input-box">
+        <label for="small-letters">Small Letters</label>
+        <input type="number" name="small-letters" id="small-letters" value="3" min="1">
+    </div> 
+
+    <div class="input-box">
+      <label for="advanced-numbers">Numbers</label>
+      <input type="number" name="advanced-numbers" id="advanced-numbers" value="4" min="1">
+  </div> 
+
+  <div class="input-box">
+    <label for="advanced-symbols">Symbols</label>
+    <input type="number" name="advanced-symbols" id="advanced-symbols" value="1" min="1">
+</div> 
+
+
+      </div>
+        <button class="sub-button">Generate Pass!</button>
+        <span id="more-options">More Options</span>
+
+      <div class="hide" id="pass-area">
+        <p>Your password is above!</p>
+        <h3></h3>
+        <button id="copy-button">Copy!</button>
+      </div>
+    </main>
+  </body>
+</html>
