@@ -32,7 +32,7 @@ const elements = [
   copyBtn,
 ];
 
-const sortLetter = (max) => {
+const sortLetter = (max = lengthInp.value) => {
   const letters = "abcdefghijklmnopqrstuvwxyz";
   if(max>0){
   return letters[Math.floor(Math.random() * letters.length)];
@@ -41,7 +41,7 @@ const sortLetter = (max) => {
   return; null
 };
 
-const sortLetterPlus = (max) => {
+const sortLetterPlus = (max = lengthInp.value) => {
   const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   if(max>0){
   return letters[Math.floor(Math.random() * letters.length)];
@@ -50,14 +50,14 @@ const sortLetterPlus = (max) => {
   return;
 };
 
-const sortNum = (max) => {
+const sortNum = (max = lengthInp.value) => {
   if(max>0){
   return Math.floor(Math.random() * 10);
   }
   return;
 };
 
-const sortSymb = (max) => {
+const sortSymb = (max = lengthInp.value) => {
   const symbs = "(){}[]*%$#@!<>/-_='";
   if(max>0){
   return symbs[Math.floor(Math.random() * symbs.length)];
@@ -143,15 +143,13 @@ subBtn.addEventListener("click", (e) => {
       }
       counter = 0;
       funcsMax.forEach((qtt) => counter = counter + qtt);
-      console.log(counter)
-      console.log(funcsMax);
-      console.log(funcArr)
     }
-  console.log(passArr);
   }
 
  
   const passString = passArr.join("");
+  console.log(passArr)
+  console.log(passString)
   pass.innerText = passString;
   copyBtn.innerText = "Copy!"
 });
