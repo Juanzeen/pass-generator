@@ -34,33 +34,34 @@ const elements = [
 
 const sortLetter = (max = lengthInp.value) => {
   const letters = "abcdefghijklmnopqrstuvwxyz";
-  if(max>0){
-  return letters[Math.floor(Math.random() * letters.length)];
+  if (max > 0) {
+    return letters[Math.floor(Math.random() * letters.length)];
   }
 
-  return; null
+  return;
+  null;
 };
 
 const sortLetterPlus = (max = lengthInp.value) => {
   const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  if(max>0){
-  return letters[Math.floor(Math.random() * letters.length)];
+  if (max > 0) {
+    return letters[Math.floor(Math.random() * letters.length)];
   }
 
   return;
 };
 
 const sortNum = (max = lengthInp.value) => {
-  if(max>0){
-  return Math.floor(Math.random() * 10);
+  if (max > 0) {
+    return Math.floor(Math.random() * 10);
   }
   return;
 };
 
 const sortSymb = (max = lengthInp.value) => {
   const symbs = "(){}[]*%$#@!<>/-_='";
-  if(max>0){
-  return symbs[Math.floor(Math.random() * symbs.length)];
+  if (max > 0) {
+    return symbs[Math.floor(Math.random() * symbs.length)];
   }
   return;
 };
@@ -97,28 +98,28 @@ subBtn.addEventListener("click", (e) => {
     if (numbersCheck.checked) funcArr.push(sortNum);
     if (symbolsCheck.checked) funcArr.push(sortSymb);
 
-    if (funcArr.length === 0 || parseInt(lengthInp.value) <= 0){
+    if (funcArr.length === 0 || parseInt(lengthInp.value) <= 0) {
       copyBtn.classList.add("not-copy");
       pass.innerText = "Impossible to generate!";
-      copyBtn.innerText = "Unavaible to Copy!"
+      copyBtn.innerText = "Unavaible to Copy!";
       return;
-    };
+    }
 
     for (i = 0; i < lengthInp.value; i++) {
       passArr.push(funcArr[Math.floor(Math.random() * funcArr.length)]());
     }
   } else {
-
     const bigLength = parseInt(bigL.value);
     const smallLength = parseInt(smallL.value);
     const advNumsLength = parseInt(advancedNums.value);
     const advSymbsLength = parseInt(advancedSymbs.value);
-    const advPassLength = bigLength + smallLength + advNumsLength + advSymbsLength;
-    
-    if(advPassLength <= 0){
+    const advPassLength =
+      bigLength + smallLength + advNumsLength + advSymbsLength;
+
+    if (advPassLength <= 0) {
       copyBtn.classList.add("not-copy");
       pass.innerText = "Impossible to generate!";
-      copyBtn.innerText = "Unavaible to Copy!"
+      copyBtn.innerText = "Unavaible to Copy!";
       return;
     }
 
@@ -126,32 +127,26 @@ subBtn.addEventListener("click", (e) => {
     const funcsMax = [bigLength, smallLength, advNumsLength, advSymbsLength];
     counter = advPassLength;
 
-    while(counter > 0 ) {
-
+    while (counter > 0) {
       const sortIndex = Math.floor(Math.random() * funcArr.length);
-      console.log(sortIndex);
 
       if (funcsMax[sortIndex] <= 0) {
-        counter++
-        funcArr.splice(sortIndex,1);
-        funcsMax.splice(sortIndex,1);
-
+        counter++;
+        funcArr.splice(sortIndex, 1);
+        funcsMax.splice(sortIndex, 1);
       } else {
         const sortChar = funcArr[sortIndex](funcsMax[sortIndex]);
         funcsMax[sortIndex] = funcsMax[sortIndex] - 1;
-        passArr.push(sortChar)
+        passArr.push(sortChar);
       }
       counter = 0;
-      funcsMax.forEach((qtt) => counter = counter + qtt);
+      funcsMax.forEach((qtt) => (counter = counter + qtt));
     }
   }
 
- 
   const passString = passArr.join("");
-  console.log(passArr)
-  console.log(passString)
   pass.innerText = passString;
-  copyBtn.innerText = "Copy!"
+  copyBtn.innerText = "Copy!";
 });
 
 moreOptions.addEventListener("click", () => {
